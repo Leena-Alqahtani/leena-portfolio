@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leena Alqahtani | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#071117;
+      --panel:rgba(255,255,255,.05);
+      --border:rgba(255,255,255,.10);
+      --text:#eaf6ff;
+      --muted:#b7c4cf;
+      --accent:#36e6ff;
+      --shadow:0 0 14px rgba(54,230,255,.20),0 0 30px rgba(54,230,255,.08);
+      --card-shadow:0 10px 26px rgba(0,0,0,.22);
+      --max:1180px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:'Inter',sans-serif;color:var(--text);background:radial-gradient(circle at 50% 10%, rgba(54,230,255,.08), transparent 24%), linear-gradient(180deg,#0a141b 0%, #071117 100%);min-height:100vh;overflow-x:hidden}
+    body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(rgba(255,255,255,.05) .8px, transparent .8px);background-size:30px 30px;opacity:.16;pointer-events:none;z-index:-1}
+    body.rtl{font-family:'Tajawal',sans-serif;direction:rtl}
+
+    .container{width:min(var(--max), calc(100% - 32px));margin:0 auto}
+    .navbar{position:sticky;top:0;z-index:50;background:rgba(7,17,23,.80);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav-inner{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .nav-links{display:flex;gap:26px;align-items:center;flex-wrap:wrap}
+    .nav-links a{color:var(--muted);text-decoration:none;transition:.25s ease;font-size:1rem}
+    .nav-links a:hover{color:var(--accent);text-shadow:0 0 10px rgba(54,230,255,.35)}
+    .lang-btn{border:1px solid rgba(54,230,255,.5);background:rgba(54,230,255,.08);color:var(--text);border-radius:999px;padding:10px 16px;cursor:pointer;box-shadow:var(--shadow);font-size:.95rem}
+
+    .hero{padding:58px 0 30px}
+    .hero-card{position:relative;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;padding:42px;border-radius:36px;background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));border:1px solid var(--border);box-shadow:var(--card-shadow)}
+    .hero-card::after{content:"";position:absolute;right:-80px;top:-60px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle, rgba(54,230,255,.18), transparent 68%);filter:blur(8px);pointer-events:none}
+    .hero-visual{display:grid;place-items:center;position:relative;min-height:320px}
+    .decor-grid{width:320px;height:220px;position:relative;border-radius:28px;background:linear-gradient(180deg, rgba(54,230,255,.05), rgba(255,255,255,.02));border:1px solid rgba(54,230,255,.10);box-shadow:0 0 25px rgba(54,230,255,.08);padding:24px}
+    .bar{position:absolute;bottom:28px;width:34px;border-radius:12px 12px 6px 6px;background:linear-gradient(180deg, rgba(54,230,255,.95), rgba(54,230,255,.22));box-shadow:0 0 16px rgba(54,230,255,.20)}
+    .bar.b1{left:38px;height:60px}.bar.b2{left:90px;height:95px}.bar.b3{left:142px;height:135px}.bar.b4{left:194px;height:82px}.bar.b5{left:246px;height:120px}
+    .line-chart{position:absolute;top:42px;left:28px;width:250px;height:78px}.circle-dot{position:absolute;width:12px;height:12px;border-radius:50%;background:#9ff6ff;box-shadow:0 0 14px rgba(54,230,255,.45)}
+    .circle-dot.d1{top:92px;left:34px}.circle-dot.d2{top:68px;left:92px}.circle-dot.d3{top:46px;left:148px}.circle-dot.d4{top:58px;left:208px}.circle-dot.d5{top:34px;left:266px}
+    .hero-copy h1{margin:0 0 10px;font-size:clamp(2.4rem,5vw,4.35rem);line-height:1.02;letter-spacing:-.03em;font-weight:800}
+    .hero-kicker{margin:0 0 14px;color:var(--accent);font-size:1.12rem;font-weight:700;text-shadow:0 0 10px rgba(54,230,255,.24)}
+    .hero-sub{margin:0;color:var(--muted);line-height:1.95;font-size:1.05rem;max-width:620px}
+
+    section{padding:28px 0}
+    .section-title{margin:0 0 18px;font-size:1.9rem;letter-spacing:-.02em}
+    .section-sub{margin:-6px 0 22px;color:#97aab8;font-size:.96rem}
+
+    .about-stack{display:grid;gap:18px}
+    .panel,.project-card{background:var(--panel);border:1px solid var(--border);border-radius:26px;box-shadow:var(--card-shadow)}
+    .panel{padding:24px}
+    .stack-card{display:grid;grid-template-columns:220px 1fr;gap:18px;align-items:start}
+    .stack-label{font-size:1.06rem;font-weight:700;color:#fff;margin:0}
+    .stack-content{color:var(--muted);line-height:1.95;font-size:1rem}
+    .stack-content p{margin:0}
+    .edu-box{padding:16px 18px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);color:var(--muted);line-height:1.8}.edu-box strong{color:#fff}
+    .exp-block+.exp-block{margin-top:18px;padding-top:18px;border-top:1px solid rgba(255,255,255,.06)}
+    .exp-role{margin:0 0 6px;font-size:1.08rem;font-weight:700;color:#fff}
+    .exp-meta{margin:0 0 12px;color:var(--accent);font-size:.95rem;font-weight:600}
+    .exp-dept{color:var(--muted);font-size:.95rem;margin:0 0 10px}
+    .exp-list{margin:0;padding-inline-start:18px;color:var(--muted);line-height:1.9}
+
+    .chip-list,.tool-list{display:flex;flex-wrap:wrap;gap:10px}
+    .chip{padding:10px 14px;border-radius:999px;background:rgba(54,230,255,.07);color:#dffcff;border:1px solid rgba(54,230,255,.16);font-size:.94rem}
+    .skill-tool{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:16px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);color:var(--text)}
+    .skill-tool img,.tool-icons img{width:34px;height:34px;object-fit:contain;border-radius:10px;padding:4px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+
+    .cert-list{display:grid;gap:12px}
+    .cert-item{padding:14px 16px;border-radius:16px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);color:var(--muted);line-height:1.8}
+
+    .projects-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+    .project-card{overflow:hidden;transition:.3s ease}
+    .project-card:hover{transform:translateY(-6px);border-color:rgba(54,230,255,.25)}
+    .project-thumb{display:block;width:100%;aspect-ratio:16/10;overflow:hidden;background:#102029}
+    .project-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:.35s ease}
+    .project-thumb:hover img{transform:scale(1.03)}
+    .project-body{padding:18px 18px 20px}
+    .project-title{margin:0 0 10px;font-size:1.15rem;font-weight:700}
+    .project-desc{margin:0 0 14px;color:var(--muted);line-height:1.85;font-size:.96rem}
+    .project-tools-label{margin:0 0 10px;color:#fff;font-weight:600;font-size:.95rem}
+    .project-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    .tool-icons{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .project-link{text-decoration:none;color:var(--accent);font-size:.92rem;font-weight:600;padding:10px 14px;border-radius:14px;border:1px solid rgba(54,230,255,.18);background:rgba(54,230,255,.06);transition:.25s ease}
+
+    .socials{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px}
+    .social-icon{width:56px;height:56px;border-radius:18px;display:grid;place-items:center;text-decoration:none;background:rgba(54,230,255,.06);border:1px solid rgba(54,230,255,.18);box-shadow:var(--shadow);transition:.25s ease}
+    .social-icon:hover{transform:translateY(-4px);background:rgba(54,230,255,.10)}
+    .social-icon img{width:26px;height:26px;object-fit:contain;filter:brightness(0) saturate(100%) invert(95%) sepia(20%) saturate(1140%) hue-rotate(148deg) brightness(104%) contrast(101%)}
+    .contact-text{margin:0 0 18px;color:var(--muted);line-height:1.9;max-width:760px}
+
+    .footer{text-align:center;color:#8fa1ad;font-size:.85rem;padding:10px 0 30px}
+    .rtl .nav-inner,.rtl .hero-card,.rtl .stack-card,.rtl .project-footer{direction:rtl}
+    .rtl .nav-links{flex-direction:row-reverse}
+    .rtl .exp-list{padding-inline-start:0;padding-inline-end:18px}
+
+    @media (max-width:980px){
+      .hero-card,.stack-card{grid-template-columns:1fr}
+      .hero-copy{text-align:center}
+      .projects-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .stack-label{text-align:center}
+    }
+    @media (max-width:640px){
+      .container{width:min(var(--max), calc(100% - 20px))}
+      .nav-inner{min-height:auto;padding:12px 0}
+      .nav-links{gap:16px}
+      .hero-card{padding:24px}
+      .projects-grid{grid-template-columns:1fr}
+      .social-icon{width:52px;height:52px;border-radius:16px}
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <div class="nav-links">
+        <a href="#home" id="navHome">Home</a>
+        <a href="#about" id="navAbout">About</a>
+        <a href="#projects" id="navProjects">Projects</a>
+        <a href="#contact" id="navContact">Contact</a>
+      </div>
+      <button class="lang-btn" id="langToggle">AR | EN</button>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-card">
+        <div class="hero-visual">
+          <div class="decor-grid">
+            <svg class="line-chart" viewBox="0 0 250 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 58C38 58 50 36 84 36C112 36 126 20 156 20C182 20 196 34 224 34" stroke="#7EF6FF" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+            <span class="circle-dot d1"></span><span class="circle-dot d2"></span><span class="circle-dot d3"></span><span class="circle-dot d4"></span><span class="circle-dot d5"></span>
+            <div class="bar b1"></div><div class="bar b2"></div><div class="bar b3"></div><div class="bar b4"></div><div class="bar b5"></div>
+          </div>
+        </div>
+        <div class="hero-copy">
+          <h1 id="heroName">Leena Alqahtani</h1>
+          <p class="hero-kicker" id="heroRole">Data Analyst</p>
+          <p class="hero-sub" id="heroSub">Data Analyst focused on transforming raw data into clear insights that support stronger decisions and create practical business value.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title" id="aboutTitle">About Me</h2>
+        <div class="about-stack">
+          <div class="panel stack-card">
+            <h3 class="stack-label" id="introLabel">Professional Summary</h3>
+            <div class="stack-content"><p id="aboutText">I am an Information Science graduate with a strong interest in data analysis and business intelligence. I work on transforming raw data into organized insights through clear dashboards and meaningful reporting, using Excel, SQL, and Power BI to support visibility, improve reporting quality, and enable better decision-making.</p></div>
+          </div>
+
+          <div class="panel stack-card">
+            <h3 class="stack-label" id="educationTitle">Education</h3>
+            <div class="stack-content"><div class="edu-box" id="educationBox"><strong>Bachelor’s Degree in Information Science</strong><br>Imam Abdulrahman Bin Faisal University<br>GPA: 4.37/5</div></div>
+          </div>
+
+          <div class="panel stack-card">
+            <h3 class="stack-label" id="experienceTitle">Experience</h3>
+            <div class="stack-content">
+              <div class="exp-block">
+                <h4 class="exp-role" id="exp1Role">KFUPM – Data Analyst Intern</h4>
+                <p class="exp-dept" id="exp1Dept">Training</p>
+                <p class="exp-meta" id="exp1Meta">Feb 2024 – Mar 2024</p>
+                <ul class="exp-list">
+                  <li id="exp1Point1">Improved data quality and consistency by cleaning and structuring operational project data using Excel and SQL.</li>
+                  <li id="exp1Point2">Built reports that helped teams track performance and monitor ongoing tasks more clearly.</li>
+                  <li id="exp1Point3">Supported data-driven decision-making by transforming raw data into actionable insights.</li>
+                </ul>
+              </div>
+              <div class="exp-block">
+                <h4 class="exp-role" id="exp2Role">Dhahran Municipality – Data Analyst Intern</h4>
+                <p class="exp-dept" id="exp2Dept">IT Department – Training</p>
+                <p class="exp-meta" id="exp2Meta">Nov 2024 – Dec 2024</p>
+                <ul class="exp-list">
+                  <li id="exp2Point1">Analyzed internal operational and administrative data to improve visibility of service requests and processes.</li>
+                  <li id="exp2Point2">Developed Excel-based reports that supported the team in improving internal workflows and efficiency.</li>
+                  <li id="exp2Point3">Contributed to better decision-making by organizing and presenting data in a clear and structured way.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel stack-card" id="skills">
+            <h3 class="stack-label" id="skillsTitle">Technical Skills</h3>
+            <div class="stack-content">
+              <p class="skill-label" id="analysisLabel">Data Analysis Skills</p>
+              <div class="chip-list">
+                <span class="chip" id="skill1">Data Cleaning</span>
+                <span class="chip" id="skill2">Data Analysis</span>
+                <span class="chip" id="skill3">Data Visualization</span>
+                <span class="chip" id="skill4">KPI Tracking</span>
+                <span class="chip" id="skill5">Data Interpretation</span>
+                <span class="chip" id="skill6">Dashboard Design</span>
+                <span class="chip" id="skill7">Reporting</span>
+              </div>
+              <p class="skill-label" id="toolsLabel" style="margin-top:18px;">Tools</p>
+              <div class="tool-list">
+                <div class="skill-tool"><img src="images/excel.png" alt="Excel"><span>Excel</span></div>
+                <div class="skill-tool"><img src="images/powerbi.png" alt="Power BI"><span>Power BI</span></div>
+                <div class="skill-tool"><img src="images/sql.png" alt="SQL"><span>SQL</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel stack-card">
+            <h3 class="stack-label" id="certificationsTitle">Certifications</h3>
+            <div class="stack-content">
+              <div class="cert-list">
+                <div class="cert-item" id="cert1">Google Data Analytics - Coursera</div>
+                <div class="cert-item" id="cert2">Data Fundamentals - IBM SkillsBuild</div>
+                <div class="cert-item" id="cert3">Data Analysis - Misk Foundation</div>
+                <div class="cert-item" id="cert4">Data Visualization (Python, R, Tableau, Excel) - 365 Data Science</div>
+                <div class="cert-item" id="cert5">Power BI Data Analysis - KFUPM, 40 Hours</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <h2 class="section-title" id="projectsTitle">Projects</h2>
+        <p class="section-sub" id="projectsSub">Selected dashboards focused on insights, clarity, and business value.</p>
+        <div class="projects-grid">
+          <article class="project-card">
+            <a class="project-thumb" href="https://github.com/Leena-Alqahtani/electricity-consumption-analysis-saudi-arabia" target="_blank"><img src="images/energy.png" alt="Electricity Consumption Analysis in Saudi Arabia"></a>
+            <div class="project-body">
+              <h3 class="project-title" id="p1Title">Electricity Consumption Analysis in Saudi Arabia</h3>
+              <p class="project-desc" id="p1Desc">Identified that residential consumption dominates electricity demand, with higher usage concentrated in central and western regions, highlighting key patterns linked to population density and supporting better energy planning.</p>
+              <p class="project-tools-label" id="toolsProjectLabel1">Tools:</p>
+              <div class="project-footer">
+                <div class="tool-icons"><img src="images/excel.png" alt="Excel"><img src="images/powerbi.png" alt="Power BI"></div>
+                <a class="project-link" href="https://github.com/Leena-Alqahtani/electricity-consumption-analysis-saudi-arabia" target="_blank" id="viewProject1">View Project</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <a class="project-thumb" href="https://github.com/Leena-Alqahtani/Customer-Behavior-SQL-Analysis" target="_blank"><img src="images/customer.png" alt="Customer Behavior Analysis"></a>
+            <div class="project-body">
+              <h3 class="project-title" id="p2Title">Customer Behavior Analysis</h3>
+              <p class="project-desc" id="p2Desc">Discovered a drop in revenue despite stable order volume, revealing a decline in average order value and supporting more targeted actions to improve customer retention and overall revenue performance.</p>
+              <p class="project-tools-label" id="toolsProjectLabel2">Tools:</p>
+              <div class="project-footer">
+                <div class="tool-icons"><img src="images/sql.png" alt="SQL"><img src="images/powerbi.png" alt="Power BI"></div>
+                <a class="project-link" href="https://github.com/Leena-Alqahtani/Customer-Behavior-SQL-Analysis" target="_blank" id="viewProject2">View Project</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <a class="project-thumb" href="https://github.com/Leena-Alqahtani/hr-data-analysis" target="_blank"><img src="images/hr.png" alt="HR Data Analysis"></a>
+            <div class="project-body">
+              <h3 class="project-title" id="p3Title">HR Data Analysis</h3>
+              <p class="project-desc" id="p3Desc">Provided clear visibility into workforce distribution and internal trends, helping improve planning and enabling a better understanding of employee structure across the organization.</p>
+              <p class="project-tools-label" id="toolsProjectLabel3">Tools:</p>
+              <div class="project-footer">
+                <div class="tool-icons"><img src="images/powerbi.png" alt="Power BI"></div>
+                <a class="project-link" href="https://github.com/Leena-Alqahtani/hr-data-analysis" target="_blank" id="viewProject3">View Project</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container panel">
+        <h2 class="section-title" id="contactTitle">Contact</h2>
+        <p class="contact-text" id="contactText">Open to Data Analyst opportunities where I can turn data into meaningful insights and real business value.</p>
+        <div class="socials">
+          <a class="social-icon" href="https://www.linkedin.com/in/leena-alqahtani-605119347/?locale=ar" target="_blank" aria-label="LinkedIn"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn"></a>
+          <a class="social-icon" href="https://github.com/Leena-Alqahtani" target="_blank" aria-label="GitHub"><img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub"></a>
+          <a class="social-icon" href="mailto:leena.alqahtani.sa@gmail.com" aria-label="Email"><img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="Email"></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="footer">Updated Portfolio • 2026</div>
+
+  <script>
+    const langToggle = document.getElementById('langToggle');
+    let currentLang = 'en';
+    const translations = {
+      en: {
+        navHome:'Home', navAbout:'About', navProjects:'Projects', navContact:'Contact',
+        heroName:'Leena Alqahtani', heroRole:'Data Analyst', heroSub:'Data Analyst focused on transforming raw data into clear insights that support stronger decisions and create practical business value.',
+        aboutTitle:'About Me', introLabel:'Professional Summary', aboutText:'I am an Information Science graduate with a strong interest in data analysis and business intelligence. I work on transforming raw data into organized insights through clear dashboards and meaningful reporting, using Excel, SQL, and Power BI to support visibility, improve reporting quality, and enable better decision-making.',
+        educationTitle:'Education', educationBox:'<strong>Bachelor’s Degree in Information Science</strong><br>Imam Abdulrahman Bin Faisal University<br>GPA: 4.37/5',
+        experienceTitle:'Experience', exp1Role:'KFUPM – Data Analyst Intern', exp1Dept:'Training', exp1Meta:'Feb 2024 – Mar 2024', exp1Point1:'Improved data quality and consistency by cleaning and structuring operational project data using Excel and SQL.', exp1Point2:'Built reports that helped teams track performance and monitor ongoing tasks more clearly.', exp1Point3:'Supported data-driven decision-making by transforming raw data into actionable insights.',
+        exp2Role:'Dhahran Municipality – Data Analyst Intern', exp2Dept:'IT Department – Training', exp2Meta:'Nov 2024 – Dec 2024', exp2Point1:'Analyzed internal operational and administrative data to improve visibility of service requests and processes.', exp2Point2:'Developed Excel-based reports that supported the team in improving internal workflows and efficiency.', exp2Point3:'Contributed to better decision-making by organizing and presenting data in a clear and structured way.',
+        skillsTitle:'Technical Skills', analysisLabel:'Data Analysis Skills', skill1:'Data Cleaning', skill2:'Data Analysis', skill3:'Data Visualization', skill4:'KPI Tracking', skill5:'Data Interpretation', skill6:'Dashboard Design', skill7:'Reporting', toolsLabel:'Tools',
+        certificationsTitle:'Certifications', cert1:'Google Data Analytics - Coursera', cert2:'Data Fundamentals - IBM SkillsBuild', cert3:'Data Analysis - Misk Foundation', cert4:'Data Visualization (Python, R, Tableau, Excel) - 365 Data Science', cert5:'Power BI Data Analysis - KFUPM, 40 Hours',
+        projectsTitle:'Projects', projectsSub:'Selected dashboards focused on insights, clarity, and business value.', p1Title:'Electricity Consumption Analysis in Saudi Arabia', p1Desc:'Identified that residential consumption dominates electricity demand, with higher usage concentrated in central and western regions, highlighting key patterns linked to population density and supporting better energy planning.', p2Title:'Customer Behavior Analysis', p2Desc:'Discovered a drop in revenue despite stable order volume, revealing a decline in average order value and supporting more targeted actions to improve customer retention and overall revenue performance.', p3Title:'HR Data Analysis', p3Desc:'Provided clear visibility into workforce distribution and internal trends, helping improve planning and enabling a better understanding of employee structure across the organization.',
+        toolsProjectLabel1:'Tools:', toolsProjectLabel2:'Tools:', toolsProjectLabel3:'Tools:', viewProject1:'View Project', viewProject2:'View Project', viewProject3:'View Project',
+        contactTitle:'Contact', contactText:'Open to Data Analyst opportunities where I can turn data into meaningful insights and real business value.'
+      },
+      ar: {
+        navHome:'الرئيسية', navAbout:'نبذة عني', navProjects:'مشاريعي', navContact:'تواصل',
+        heroName:'لينا القحطاني', heroRole:'محللة بيانات', heroSub:'محللة بيانات أركز على تحويل البيانات الخام إلى رؤى واضحة تدعم اتخاذ القرار وتخلق قيمة عملية حقيقية.',
+        aboutTitle:'نبذة عني', introLabel:'نبذة مهنية', aboutText:'أنا خريجة علم المعلومات ولدي اهتمام قوي بتحليل البيانات وذكاء الأعمال. أعمل على تحويل البيانات الخام إلى رؤى منظمة من خلال لوحات معلومات واضحة وتقارير ذات معنى، باستخدام Excel وSQL وPower BI لدعم وضوح البيانات وتحسين جودة التقارير والمساهمة في اتخاذ قرارات أفضل.',
+        educationTitle:'التعليم', educationBox:'<strong>بكالوريوس في علم المعلومات</strong><br>جامعة الإمام عبدالرحمن بن فيصل<br>المعدل: 4.37 من 5',
+        experienceTitle:'الخبرات', exp1Role:'جامعة الملك فهد للبترول والمعادن – متدربة محللة بيانات', exp1Dept:'تدريب', exp1Meta:'فبراير 2024 – مارس 2024', exp1Point1:'رفعت جودة البيانات واتساقها من خلال تنظيف وتنظيم البيانات التشغيلية المتعلقة بالمشاريع والمهام باستخدام Excel وSQL.', exp1Point2:'ساهمت في إعداد تقارير ساعدت الفرق على متابعة الأداء والمهام الجارية بشكل أوضح.', exp1Point3:'دعمت اتخاذ القرار المبني على البيانات عبر تحويل البيانات الخام إلى رؤى قابلة للاستفادة.',
+        exp2Role:'بلدية الظهران – متدربة محللة بيانات', exp2Dept:'قسم تقنية المعلومات – تدريب', exp2Meta:'نوفمبر 2024 – ديسمبر 2024', exp2Point1:'حللت بيانات تشغيلية وإدارية من الأنظمة الداخلية لتحسين وضوح الطلبات والخدمات والإجراءات.', exp2Point2:'طورت تقارير باستخدام Excel دعمت القسم في تحسين كفاءة الإجراءات الداخلية.', exp2Point3:'ساهمت في دعم القرار من خلال تنظيم البيانات وعرضها بشكل واضح ومنظم.',
+        skillsTitle:'المهارات التقنية', analysisLabel:'مهارات تحليل البيانات', skill1:'تنظيف البيانات', skill2:'تحليل البيانات', skill3:'تصور البيانات', skill4:'متابعة المؤشرات', skill5:'تفسير البيانات', skill6:'تصميم لوحات المعلومات', skill7:'إعداد التقارير', toolsLabel:'الأدوات',
+        certificationsTitle:'الشهادات', cert1:'Google Data Analytics - Coursera', cert2:'Data Fundamentals - IBM SkillsBuild', cert3:'Data Analysis - مؤسسة مسك', cert4:'Data Visualization (Python, R, Tableau, Excel) - 365 Data Science', cert5:'Power BI Data Analysis - جامعة الملك فهد للبترول والمعادن، 40 ساعة',
+        projectsTitle:'المشاريع', projectsSub:'مجموعة مختارة من المشاريع التي تركز على الرؤى والوضوح والقيمة العملية.', p1Title:'تحليل استهلاك الكهرباء في المملكة العربية السعودية', p1Desc:'أظهر التحليل أن القطاع السكني يمثل النسبة الأعلى من استهلاك الكهرباء، مع تركّز أعلى للاستخدام في المنطقتين الوسطى والغربية، مما يبرز أنماطًا مرتبطة بالكثافة السكانية ويدعم التخطيط الأفضل للطاقة.', p2Title:'تحليل سلوك العملاء', p2Desc:'كشف التحليل عن انخفاض في الإيرادات رغم استقرار عدد الطلبات، مما يشير إلى تراجع متوسط قيمة الطلب ويدعم اتخاذ قرارات أكثر دقة لتحسين الاحتفاظ بالعملاء ورفع الأداء المالي.', p3Title:'تحليل بيانات الموارد البشرية', p3Desc:'وفّر المشروع رؤية أوضح لتوزيع القوى العاملة والاتجاهات الداخلية، مما يساعد على تحسين التخطيط وفهم هيكل الموظفين بشكل أفضل.',
+        toolsProjectLabel1:'الأدوات:', toolsProjectLabel2:'الأدوات:', toolsProjectLabel3:'الأدوات:', viewProject1:'عرض المشروع', viewProject2:'عرض المشروع', viewProject3:'عرض المشروع',
+        contactTitle:'تواصل', contactText:'منفتحة على فرص محللة بيانات أستطيع من خلالها تحويل البيانات إلى رؤى واضحة وقيمة عملية تدعم اتخاذ القرار.'
+      }
+    };
+
+    function setLanguage(lang){
+      currentLang = lang;
+      const t = translations[lang];
+      document.body.classList.toggle('rtl', lang === 'ar');
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+      Object.keys(t).forEach(id => {
+        const el = document.getElementById(id);
+        if(!el) return;
+        if(id === 'educationBox') el.innerHTML = t[id]; else el.textContent = t[id];
+      });
+    }
+
+    document.getElementById('langToggle').addEventListener('click', ()=> setLanguage(currentLang === 'en' ? 'ar' : 'en'));
+    setLanguage('en');
+  </script>
+</body>
+</html>
