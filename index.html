@@ -593,7 +593,17 @@
         height:52px;
         border-radius:16px;
       }
-    }
+      .edu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.edu-date {
+  color: #00d4ff;
+  font-weight: bold;
+  font-size: 14px;
+}
   </style>
 </head>
 <body>
@@ -644,9 +654,14 @@
             <h3 class="stack-label" id="educationTitle">Education</h3>
             <div class="stack-content">
               <div class="edu-box" id="educationBox">
-                <span class="study-years">2021 – 2025</span>
-                <strong>Bachelor’s Degree in Information Science</strong><br>
-                Imam Abdulrahman Bin Faisal University<br>
+            
+                <div class="edu-header">
+  <strong>Bachelor’s Degree in Information Science</strong>
+  <span class="edu-date">2021 – 2025</span>
+</div>
+
+Imam Abdulrahman Bin Faisal University<br>
+                
                 GPA: 4.37/5
               </div>
             </div>
