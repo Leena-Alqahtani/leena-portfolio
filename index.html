@@ -294,16 +294,25 @@
       line-height:1.8;
     }
 
-    .edu-box strong{
-      color:#fff;
+    .edu-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:16px;
+      margin-bottom:8px;
     }
 
-    .study-years{
+    .edu-header strong{
+      color:#fff;
+      font-size:1.02rem;
+      line-height:1.6;
+    }
+
+    .edu-date{
       color:var(--accent);
       font-weight:700;
-      display:block;
-      margin-bottom:8px;
-      text-align:end;
+      white-space:nowrap;
+      flex-shrink:0;
     }
 
     .exp-block + .exp-block{
@@ -593,17 +602,16 @@
         height:52px;
         border-radius:16px;
       }
-      .edu-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 
-.edu-date {
-  color: #00d4ff;
-  font-weight: bold;
-  font-size: 14px;
-}
+      .edu-header{
+        flex-direction:column;
+        gap:6px;
+      }
+
+      .edu-date{
+        white-space:normal;
+      }
+    }
   </style>
 </head>
 <body>
@@ -654,14 +662,11 @@
             <h3 class="stack-label" id="educationTitle">Education</h3>
             <div class="stack-content">
               <div class="edu-box" id="educationBox">
-            
                 <div class="edu-header">
-  <strong>Bachelor’s Degree in Information Science</strong>
-  <span class="edu-date">2021 – 2025</span>
-</div>
-
-Imam Abdulrahman Bin Faisal University<br>
-                
+                  <strong>Bachelor’s Degree in Information Science</strong>
+                  <span class="edu-date">2021 – 2025</span>
+                </div>
+                Imam Abdulrahman Bin Faisal University<br>
                 GPA: 4.37/5
               </div>
             </div>
@@ -830,7 +835,7 @@ Imam Abdulrahman Bin Faisal University<br>
         aboutText:'I am an Information Science graduate with a strong interest in data analysis and business intelligence. I work on transforming raw data into organized insights through clear dashboards and meaningful reporting, using Excel, SQL, and Power BI to support visibility, improve reporting quality, and enable better decision-making.',
 
         educationTitle:'Education',
-        educationBox:'<span class=\"study-years\">2021 – 2025</span><strong>Bachelor’s Degree in Information Science</strong><br>Imam Abdulrahman Bin Faisal University<br>GPA: 4.37/5',
+        educationBox:'<div class="edu-header"><strong>Bachelor’s Degree in Information Science</strong><span class="edu-date">2021 – 2025</span></div>Imam Abdulrahman Bin Faisal University<br>GPA: 4.37/5',
 
         experienceTitle:'Experience',
         exp1Role:'KFUPM – Data Analyst Intern',
@@ -899,7 +904,7 @@ Imam Abdulrahman Bin Faisal University<br>
         aboutText:'أنا خريجة علم المعلومات ولدي اهتمام قوي بتحليل البيانات وذكاء الأعمال. أعمل على تحويل البيانات الخام إلى رؤى منظمة من خلال لوحات معلومات واضحة وتقارير ذات معنى، باستخدام Excel وSQL وPower BI لدعم وضوح البيانات وتحسين جودة التقارير والمساهمة في اتخاذ قرارات أفضل.',
 
         educationTitle:'التعليم',
-        educationBox:'<span class=\"study-years\">2021 – 2025</span><strong>بكالوريوس في علم المعلومات</strong><br>جامعة الإمام عبدالرحمن بن فيصل<br>المعدل: 4.37 من 5',
+        educationBox:'<div class="edu-header"><strong>بكالوريوس في علم المعلومات</strong><span class="edu-date">2021 – 2025</span></div>جامعة الإمام عبدالرحمن بن فيصل<br>المعدل: 4.37 من 5',
 
         experienceTitle:'الخبرات',
         exp1Role:'جامعة الملك فهد للبترول والمعادن – متدربة محللة بيانات',
