@@ -612,6 +612,38 @@
       .edu-date{
         white-space:normal;
       }
+      .project-slider {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.project-slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}
+
+.project-slider img.active {
+  display: block;
+}
+
+.project-slider button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  font-size: 18px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.project-slider .prev { left: 10px; }
+.project-slider .next { right: 10px; }
     }
   </style>
 </head>
@@ -747,11 +779,17 @@
 
           <article class="project-card">
 
- <a class="project-thumb" href="https://github.com/Leena-Alqahtani/fraud-credit-risk-dashboard" target="_blank">
-  <img src="images/overview.png" style="width:100%; height:220px; object-fit:contain; background:#0b1d2a; border-radius:16px;">
-</a>
-            
+ <div class="project-slider">
 
+  <img src="images/overview.png" class="active">
+  <img src="images/geographic.png">
+  <img src="images/insights.png">
+
+  <button class="prev">‹</button>
+  <button class="next">›</button>
+
+</div>
+            
   <div class="project-body">
     <h3 class="project-title">Fraud & Credit Risk Dashboard</h3>
 
@@ -1076,5 +1114,25 @@
       setLanguage('en');
     });
   </script>
+<script>
+const sliders = document.querySelectorAll('.project-slider');
+
+sliders.forEach(slider => {
+  let imgs = slider.querySelectorAll('img');
+  let i = 0;
+
+  slider.querySelector('.next').onclick = () => {
+    imgs[i].classList.remove('active');
+    i = (i + 1) % imgs.length;
+    imgs[i].classList.add('active');
+  };
+
+  slider.querySelector('.prev').onclick = () => {
+    imgs[i].classList.remove('active');
+    i = (i - 1 + imgs.length) % imgs.length;
+    imgs[i].classList.add('active');
+  };
+});
+</script>
 </body>
 </html>
